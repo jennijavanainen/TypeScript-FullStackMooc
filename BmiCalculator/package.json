@@ -1,0 +1,26 @@
+{
+  "name": "fullstackmooc-part9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-node": "ts-node",
+    "calculateBmi": "ts-node bmiCalculator.ts",
+    "calculateExcercises": "ts-node exerciseCalculator.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jennijavanainen/TypeScript-FullStackMooc.git"
+  },
+  "author": "jenni javanainen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jennijavanainen/TypeScript-FullStackMooc/issues"
+  },
+  "homepage": "https://github.com/jennijavanainen/TypeScript-FullStackMooc#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}
