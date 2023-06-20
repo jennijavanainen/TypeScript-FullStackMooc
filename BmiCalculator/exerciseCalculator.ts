@@ -10,15 +10,15 @@ interface Result {
 }
 
 export const parseArguments = (args: Array<string>): Array<number> => {
-    if (args.length < 4) throw new Error("Not enough arguments");
+    if (args.length < 1) throw new Error("Not enough arguments");
 
     const hours: Array<number> = args.map(day => Number(day));
     if (!hours.includes(NaN)) {
-        return hours
+        return hours;
     } else {
-        throw new Error("Provided values were not numbers!")
+        throw new Error("Provided values were not numbers!");
     }
-}
+};
 
 export const calculateExercises = (hours: Array<number>, target: number): Result => {
     let trainingDays = 0;
@@ -48,7 +48,7 @@ export const calculateExercises = (hours: Array<number>, target: number): Result
         ratingDescription: ratingDescription,
         target: target,
         average: average,
-    }
+    };
 };
 
 try {
@@ -58,7 +58,7 @@ try {
     console.log(calculateExercises(hours, target));
 
 } catch (error:unknown) {
-    let errorMessage = "Something bad happened"
+    let errorMessage = "Something bad happened";
     if (error instanceof Error) {
         errorMessage += ' Error: ' + error.message;
     }
