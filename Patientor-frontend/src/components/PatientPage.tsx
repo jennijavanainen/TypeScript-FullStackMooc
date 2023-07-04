@@ -1,21 +1,23 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { apiBaseUrl } from "../constants";
-import { useStateValue } from "./state";
-import { Patient, Gender  } from "../types";
-import { Button } from "@mui/material";
+import { Patient, Gender, Diagnosis } from "../types";
+import EntryDetails from "./EntryInformation/EntryDetails";
 
-type Params = {
+type Id = {
     id: string;
 }
 
-const PatientPage: React.FC = () => {
-    const [patient, setPatient] = React.useState<Patient>({
-        id:"", name:"", dateOfBirth:"", ssn:"", gender:Gender.Female, occupation:""
+interface Props {
+    diagnosis : Diagnosis[]
+}
+
+const PatientPage = ({ diagnosis } : Props) => {
+    const [patient, setPatient] = useState<Patient>({
+        id:"", name:"", dateOfBirth:"", ssn:"", gender:Gender.Other, occupation:"", entries:[]
     });
-    const {id} = useParams<Params>();
-    const [, dispatch] = useStateValue();
+    const {id} = useParams<Id>();
 
     React.useEffect(() => {
         const getPatient = async () =>{
@@ -27,7 +29,7 @@ const PatientPage: React.FC = () => {
             }
         }
         void getPatient();
-    },[dispatch])
+    },[])
 
     return (
         <div>
@@ -35,6 +37,10 @@ const PatientPage: React.FC = () => {
             <p>gender: {patient.gender}</p>
             <p>ssn: {patient.ssn}</p>
             <p>occupation: {patient.occupation}</p>
+            <h3>entries</h3>
+            {patient.entries.map(entry =>
+                <EntryDetails key={entry.id} entry={entry} diagnosis={diagnosis} />
+            )}
         </div>
     )
 }
