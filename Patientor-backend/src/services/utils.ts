@@ -1,9 +1,9 @@
-import { Patient, Gender } from "../types";
+import { Patient, Gender, Entry } from "../types";
 
 
-type Fields = { name: unknown, dateOfBirth: unknown, ssn: unknown, gender: unknown, occupation: unknown };
+type Fields = { name: unknown, dateOfBirth: unknown, ssn: unknown, gender: unknown, occupation: unknown, entries: Entry};
 
-const toNewPatientEntry = ({ name, dateOfBirth, ssn, gender, occupation}: Fields): Patient => {
+const toNewPatientEntry = ({ name, dateOfBirth, ssn, gender, occupation }: Fields): Patient => {
     return {
         id: "",
         name: parseStrings(name),
@@ -11,6 +11,7 @@ const toNewPatientEntry = ({ name, dateOfBirth, ssn, gender, occupation}: Fields
         ssn: parseStrings(ssn),
         gender: parseGender(gender),
         occupation: parseStrings(occupation),
+        entries: []
     };
 };
 
