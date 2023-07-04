@@ -1,0 +1,17 @@
+.entry-hospital {
+  border: 1px solid red;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.entry-healthCheck {
+  border: 1px solid blue;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.entry-occupational {
+  border: 1px solid green;
+  padding: 10px;
+  margin-bottom: 10px;
+}
