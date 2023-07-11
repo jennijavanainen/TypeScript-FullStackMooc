@@ -31,7 +31,7 @@ try {
 } catch (error:unknown) {
     let errorMessage = "Something bad happened";
     if (error instanceof Error) {
-        errorMessage += ' Error: ' + error.message;
+        errorMessage += ' ErrorLogger: ' + error.message;
     }
     console.log(errorMessage);
 }
