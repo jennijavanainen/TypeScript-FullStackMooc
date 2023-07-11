@@ -27,12 +27,10 @@ const AddPatientForm = ({ onCancel, onSubmit }: Props) => {
 
   const onGenderChange = (event: SelectChangeEvent<string>) => {
     event.preventDefault();
-    if ( typeof event.target.value === "string") {
-      const value = event.target.value;
-      const gender = Object.values(Gender).find(g => g.toString() === value);
-      if (gender) {
-        setGender(gender);
-      }
+    const value = event.target.value;
+    const gender = Object.values(Gender).find(g => g.toString() === value);
+    if (gender) {
+      setGender(gender);
     }
   };
 

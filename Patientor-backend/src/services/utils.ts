@@ -1,9 +1,9 @@
-import { Patient, Gender, Entry } from "../types";
+import { Entry, Gender, Patient } from "../types";
 
 
 type Fields = { name: unknown, dateOfBirth: unknown, ssn: unknown, gender: unknown, occupation: unknown, entries: Entry};
 
-const toNewPatientEntry = ({ name, dateOfBirth, ssn, gender, occupation }: Fields): Patient => {
+export const toNewPatientEntry = ({ name, dateOfBirth, ssn, gender, occupation }: Fields): Patient => {
     return {
         id: "",
         name: parseStrings(name),
@@ -39,4 +39,20 @@ const parseGender = (gender: unknown): Gender => {
     return gender;
 };
 
-export default toNewPatientEntry;
+export const toNewEntry = (entry: Entry, patient: Patient): Patient => {
+    const addEntry = patient.entries.concat(entry);
+    return {
+        id: patient.id,
+        name: patient.name,
+        dateOfBirth: patient.dateOfBirth,
+        ssn: patient.ssn,
+        gender: patient.gender,
+        occupation: patient.occupation,
+        entries: addEntry,
+    };
+}
+
+export default {
+    toNewPatientEntry,
+    toNewEntry,
+};
